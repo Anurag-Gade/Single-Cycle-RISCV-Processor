@@ -1,5 +1,5 @@
 //Author: Anurag Gade
-//file: alu_control.v
+//File: alu_control.v
 
 `timescale 1ns / 1ps
 
