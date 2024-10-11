@@ -1,1 +1,1 @@
-# Single-Cycle-MIPS-Processor
+# Single-Cycle-RISCV-Processor
