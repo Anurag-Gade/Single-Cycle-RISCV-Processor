@@ -21,6 +21,7 @@
 
 
 module register_file(input clk,
+                     input reset,
                      input regWrite,
                      input [19:15] readReg1,
                      input [24:20] readReg2,
@@ -39,11 +40,18 @@ module register_file(input clk,
     assign readData1 = (readReg1 != 0) ? reg_memory[readReg1] : 0;
     assign readData1 = (readReg2 != 0) ? reg_memory[readReg2] : 0;
     
-    always @ (posedge clk) begin
-        if(regWrite == 1) 
-            
-            reg_memory[writeReg] <= writeData;
-            
+  always @ (posedge clk, posedge reset) begin
+    if(reset) begin
+      for(i = 0; i < 32; i = i + 1) begin
+        reg_memory[i] = i;
+      end
     end
+    else if(regWrite == 1) begin
+            
+           reg_memory[writeReg] <= writeData;
+
+    end
+            
+  end
         
 endmodule
