@@ -22,7 +22,7 @@
 
 module register_file(input clk,
                      input reset,
-                     input regWrite,
+                     input RegWrite,
                      input [19:15] readReg1,
                      input [24:20] readReg2,
                      input [11:7] writeReg,
@@ -46,7 +46,7 @@ module register_file(input clk,
         reg_memory[i] = i;
       end
     end
-    else if(regWrite == 1) begin
+    else if(RegWrite == 1) begin
             
            reg_memory[writeReg] <= writeData;
 
